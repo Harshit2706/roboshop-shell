@@ -6,7 +6,7 @@ yum install mysql-community-server -y
 systemctl enable mysqld
 systemctl restart mysqld
 
-echo show database | mysql -uroot -pRoboShop@1
+echo show databases | mysql -uroot -pRoboShop@1
 echo $?
 
 echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" > /tmp/root-pass-sql
