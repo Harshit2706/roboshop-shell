@@ -9,11 +9,17 @@ STAT $?
 APP_LOC=/usr/share/nginx/html
 
 DOWNLOAD_APP_CODE
-exit
 
 mv frontend-main/static/* .
+
+PRINT "Copy RoboShop Configuration File"
 mv frontend-main/localhost.conf /etc/nginx/default.d/roboshop.conf
+STAT $?
 
+PRINT "Enable Nginx Service"
 systemctl enable nginx
-systemctl restart nginx
+STAT $?
 
+PRINT "Start Nginx Service"
+systemctl restart nginx
+STAT $?
