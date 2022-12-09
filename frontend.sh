@@ -2,7 +2,7 @@ COMPONENT=frontend
 CONTENT="*"
 source common.sh
 
-PRINT"Install Nginx"
+PRINT "Install Nginx"
 yum install nginx -y &>>$LOG
 STAT $?
 
