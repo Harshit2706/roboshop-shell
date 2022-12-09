@@ -2,7 +2,7 @@ if [ -z "$1" ]; then
   echo Input argument Password is needed
   exit
 fi
-COMPONENT=cart
+COMPONENT=mysql
 source common.sh
 ROBOSHOP_MYSQL_PASSWORD=$1
 
