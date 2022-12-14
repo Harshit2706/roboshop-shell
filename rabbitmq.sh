@@ -43,3 +43,5 @@ STAT $?
 PRINT "Configure Application user Permissions"
 rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*" &>>$LOG
 STAT $?
+
+#1
