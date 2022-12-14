@@ -43,7 +43,7 @@ STAT $?
 
 SYSTEMD_SETUP() {
   PRINT "Configure endpints for SystemD Configuration"
-  sed -i -e 's/MONGO_DNSNAME/dev-mongodb.devopsb69.online/' -e 's/REDIS_ENDPOINT/dev-redis.devopsb69.online/' -e 's/CATALOGUE_ENDPOINT/dev-catalogue.devopsb69.online/' /home/roboshop/${COMPONENT}/systemd.service &>>$LOG
+  sed -i -e 's/MONGO_DNSNAME/dev-mongodb.devopsb69.online/' -e 's/REDIS_ENDPOINT/dev-redis.devopsb69.online/' -e 's/CATALOGUE_ENDPOINT/dev-catalogue.devopsb69.online/' -e 's/MONGO_ENDPOINT/dev-mongodb.devopsb69.online/' -e 's/REDIS_HOST/dev-redis.devopsb69.online/' /home/roboshop/${COMPONENT}/systemd.service &>>$LOG
   STAT $?
 
   PRINT "Setup SystemD Service"
