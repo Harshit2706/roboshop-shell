@@ -35,3 +35,5 @@ STAT $?
 PRINT "Load User Schema"
 mongo < users.js &>>$LOG
 STAT $?
+
+#1
