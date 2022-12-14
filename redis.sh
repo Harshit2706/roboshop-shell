@@ -25,3 +25,4 @@ PRINT "Start Redis Service"
 systemctl restart redis &>>$LOG
 STAT $?
 
+#1
