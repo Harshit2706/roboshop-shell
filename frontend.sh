@@ -10,10 +10,10 @@ APP_LOC=/usr/share/nginx/html
 
 DOWNLOAD_APP_CODE
 
-mv frontend-main/static/* .
+mv ${COMPONENT}-main/static/* .
 
 PRINT "Copy RoboShop Configuration File"
-mv frontend-main/localhost.conf /etc/nginx/default.d/roboshop.conf
+mv ${COMPONENT}-main/localhost.conf /etc/nginx/default.d/roboshop.conf
 STAT $?
 
 PRINT "Enable Nginx Service"
