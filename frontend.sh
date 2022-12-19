@@ -17,7 +17,7 @@ mv ${COMPONENT}-main/localhost.conf /etc/nginx/default.d/roboshop.conf
 STAT $?
 
 PRINT "Update RoboShop Configuration"
-sed -i -e '/catalogue/ s/localhost/dev-catalogue.devopsb69.online/' -e '/user/ s/localhost/dev-user.devopsb69.online/' -e '/cart/ s/localhost/dev-cart.devopsb69.online/' -e '/shipping/ s/localhost/dev-shipping.devopsb69.online/' -e '/payment/ s/localhost/dev-payment.devopsb69.online/' /etc/nginx/default.d/roboshop.conf
+sed -i -e '/catalogue/ s/localhost/dev-catalogue.harshit-creator.online/' -e '/user/ s/localhost/dev-user.harshit-creator.online/' -e '/cart/ s/localhost/dev-cart.harshit-creator.online/' -e '/shipping/ s/localhost/dev-shipping.harshit-creator.online/' -e '/payment/ s/localhost/dev-payment.harshit-creator.online/' /etc/nginx/default.d/roboshop.conf
 STAT $?
 
 PRINT "Enable Nginx Service"
