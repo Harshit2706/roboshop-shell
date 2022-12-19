@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ##### Change these values ###
-ZONE_ID="Z02997672I591AG282OU5"
+ZONE_ID="Z07038563K44F9EE3ZXK2"
 SG_NAME="allow-all"
 #ENV="dev"
 #############################
@@ -21,6 +21,7 @@ create_ec2() {
   sed -e "s/IPADDRESS/${PRIVATE_IP}/" -e "s/COMPONENT/${COMPONENT}/" route53.json >/tmp/record.json
   aws route53 change-resource-record-sets --hosted-zone-id ${ZONE_ID} --change-batch file:///tmp/record.json | jq
 }
+exit
 
 
 ## Main Program
