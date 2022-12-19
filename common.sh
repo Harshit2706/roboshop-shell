@@ -43,7 +43,7 @@ STAT $?
 
 SYSTEMD_SETUP() {
   PRINT "Configure endpints for SystemD Configuration"
-  sed -i -e 's/MONGO_DNSNAME/dev-mongodb.harshit-creator.online/' -e 's/REDIS_ENDPOINT/dev-redis.harshit-creator.online/' -e 's/CATALOGUE_ENDPOINT/dev-catalogue.harshit-creator.online/' -e 's/MONGO_ENDPOINT/dev-mongodb.harshit-creator.online/' -e 's/CARTENDPOINT/dev-cart.harshit-creator.online/' -e 's/DBHOST/dev-mysql.harshit-creator.online/' /home/roboshop/${COMPONENT}/systemd.service &>>$LOG
+  sed -i -e 's/MONGO_DNSNAME/dev-mongodb.harshit-creator.online/' -e 's/REDIS_ENDPOINT/dev-redis.harshit-creator.online/' -e 's/CATALOGUE_ENDPOINT/dev-catalogue.harshit-creator.online/' -e 's/MONGO_ENDPOINT/dev-mongodb.harshit-creator.online/' -e 's/CARTENDPOINT/dev-cart.harshit-creator.online/' -e 's/DBHOST/dev-mysql.harshit-creator.online/' -e 's/AMQPHOST/dev-rabbitmq.harshit-creator.online/' -e 's/CARTHOST/dev-cart.harshit-creator.online/' -e 's/USERHOST/dev-user.harshit-creator.online/' /home/roboshop/${COMPONENT}/systemd.service &>>$LOG
   STAT $?
 
   PRINT "Setup SystemD Service"
