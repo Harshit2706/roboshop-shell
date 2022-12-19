@@ -12,16 +12,14 @@ create_ec2() {
   PRIVATE_IP=$(aws ec2 run-instances \
       --image-id ${AMI_ID} \
       --instance-type t3.micro \
-      --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${COMPONENT}}, {Key=Monitor,Value=yes}]" "ResourceType=spot-instances-request,Tags=[{Key=Name,Value=${COMPONENT}}]"  \
+      --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${COMPONENT}}]" "ResourceType=spot-instances-request,Tags=[{Key=Name,Value=${COMPONENT}}]"  \
       --instance-market-options "MarketType=spot,SpotOptions={SpotInstanceType=persistent,InstanceInterruptionBehavior=stop}"\
       --security-group-ids ${SGID} \
-      --iam-instance-profile Name=aws_ssm_dev_role \
       | jq '.Instances[].PrivateIpAddress' | sed -e 's/"//g')
 
   sed -e "s/IPADDRESS/${PRIVATE_IP}/" -e "s/COMPONENT/${COMPONENT}/" route53.json >/tmp/record.json
   aws route53 change-resource-record-sets --hosted-zone-id ${ZONE_ID} --change-batch file:///tmp/record.json | jq
 }
-
 
 
 ## Main Program
@@ -37,11 +35,8 @@ if [ -z "${SGID}" ]; then
   exit 1
 fi
 
-if [ -z "$1" ]; then
-  echo Input Component Name is needed
-  exit 1
-fi
 
-component=$1
-COMPONENT="${env}-${component}"
-create_ec2
+for component in catalogue cart user shipping payment frontend mongodb mysql rabbitmq redis dispatch; do
+  COMPONENT="${env}-${component}"
+  create_ec2
+done
